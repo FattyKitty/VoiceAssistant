@@ -2,14 +2,13 @@ import speech_recognition
 import pyttsx3
 
 class VoiceAssistant():
-    """Настройки голосового ассистента"""
+    """Voice assistant seettings"""
 
     def __init__(self, Name, Gender, UseLanguage):
         self._Name=Name
         self._Gender=Gender
         self._UseLanguage=UseLanguage
         self.engine=pyttsx3.init()
-
 
     def GetName(self):
         return self._Name

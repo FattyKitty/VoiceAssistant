@@ -20,11 +20,9 @@ def OnlineRecognition(AssistantObject):
         AudioVoice=Recognizer.listen(mic)
 
         try:
-            StringCommand=Recognizer.recognize_google(AudioVoice, language=AssistantObject.GetLanguage())
+            StringCommand=Recognizer.recognize_google(AudioVoice, language=AssistantObject.GetLanguage()).lower()
         except speech_recognition.UnknownValueError:
-            AssistantObject.Say('Не понимаю, что вы сказали, повторите, пожалуйста')
-            OnlineRecognition(AssistantObject)
-            StringCommand=OnlineRecognition(AssistantObject)
+            return ' '
     
     return StringCommand
 
@@ -63,13 +61,3 @@ def CheckConnection():
         return True
     except:
         return False
-
-
-def CommandParser(InputCommand, AssistantObject):
-    StringByArgumentsSplit=list(InputCommand.split(' '))
-
-    if StringByArgumentsSplit[0]==AssistantObject.GetName():
-        AssistantObject.Say('Это команда')
-    else:
-        AssistantObject.Say('Это не команда')
-        

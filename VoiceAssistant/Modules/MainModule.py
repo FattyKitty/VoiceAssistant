@@ -1,4 +1,5 @@
-import Modules.SystemModule as SystemModule
+import Modules.SpeechRecognitionModule as SystemModule
+import Modules.CommandClassificatorModule as Classificator
 from vosk import Model, KaldiRecognizer
 from Classes.VoiceAssistant import VoiceAssistant
 
@@ -15,4 +16,4 @@ if __name__=='__main__':
         else:
             RecognizedSpeechCommand=SystemModule.OfflineOfflineRecognition(Assistant)
         print(RecognizedSpeechCommand)
-        SystemModule.CommandParser(RecognizedSpeechCommand, Assistant)
+        Classificator.CommandClassificator(RecognizedSpeechCommand, Assistant)

@@ -21,10 +21,19 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Modules\CommandClassificatorModule.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Modules\MainModule.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\VoiceAssistant.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modules\SpeechRecognitionModule.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modules\VoiceModule.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
