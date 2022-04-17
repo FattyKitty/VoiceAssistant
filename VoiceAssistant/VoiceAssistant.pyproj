@@ -24,6 +24,9 @@
     <Compile Include="Modules\CommandClassificatorModule.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Modules\InternetAndWeatherModule.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Modules\MainModule.py">
       <SubType>Code</SubType>
     </Compile>

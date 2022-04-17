@@ -12,3 +12,6 @@ def MakeUserHappy(AssistantObject):
 
     NumberOfMotivationalSpeech=rnd.randrange(0, len(ListOfMotivators))
     AssistantObject.Say(ListOfMotivators[NumberOfMotivationalSpeech])
+
+def SayGoodbyeToUser(AssitantObject):
+    AssitantObject.Say('До свидания пользователь')

@@ -6,7 +6,7 @@ from Classes.VoiceAssistant import VoiceAssistant
 if __name__=='__main__':
     RecognizedSpeechCommand='' #string for speech recognized and translated to a text form
 
-    Assistant=VoiceAssistant(Name='ассистент', Gender='male', UseLanguage='ru')
+    Assistant=VoiceAssistant(Name='помощник', Gender='male', UseLanguage='ru')
     Assistant.ConfigureAssistant()
 
     LocalModelConnection=SystemModule.ConnectToLocalLibrary(Assistant)
