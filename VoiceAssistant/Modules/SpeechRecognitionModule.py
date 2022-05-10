@@ -56,6 +56,6 @@ def OfflineRecognition(AssistantObject, model):
 def CheckConnection():
     try:
         urllib.request.urlopen('http://mai.ru')
-        return False
+        return True
     except:
         return False

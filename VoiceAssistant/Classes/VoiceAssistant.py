@@ -1,5 +1,6 @@
 import speech_recognition
 import pyttsx3
+import json
 
 class VoiceAssistant():
     """Настройки голосового ассистента"""
@@ -33,16 +34,21 @@ class VoiceAssistant():
         voices=self.engine.getProperty('voices')
         self.engine.setProperty('rate', 140)
 
-        if self._UseLanguage=='en':
-            if self._Gender=='male':
+        if self.GetLanguage()=='en':
+            if self.GetGender()=='male':
                 self.engine.setProperty('voice', voices[1].id)
             else:
                 self.engine.setProperty('voice', voices[2].id)
-        elif self._UseLanguage=='ru':
-            if self._Gender=='female':
+        elif self.GetLanguage()=='ru':
+            if self.GetGender()=='female':
                 self.engine.setProperty('voice', voices[0].id)
             else:
                 self.engine.setProperty('voice', voices[3].id)
+
+        ToJsonSettings={'AssistantName':self._Name, "AssistantGender:":self._Gender, "AssistantLanguage": self._UseLanguage}
+
+        with open('Json/AssistantSettings.json', 'w', encoding='utf-8') as file:
+            file.write(json.dumps(ToJsonSettings, ensure_ascii=False))
 
 
     def Say(self, StringToSpeech):

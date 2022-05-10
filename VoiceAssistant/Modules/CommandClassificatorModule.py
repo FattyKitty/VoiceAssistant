@@ -2,13 +2,12 @@ import Modules.VoiceModule as VoiceM
 import Modules.InternetAndWeatherModule as IOT
 
 Commands ={
-    ('привет', 'здравствуй'): VoiceM.SayHelloToUser,
-    ('поддержи','ободри', 'ободрить', 'поддержи', 'подбодри'): VoiceM.MakeUserHappy,
+    ('привет', 'здравствуй', 'добрый день'): VoiceM.SayHelloToUser,
+    ('поддержи', 'поддержи меня', 'подбодри меня'): VoiceM.MakeUserHappy,
     ('загугли', 'найди', 'поищи', 'поиск', 'гугл', 'google'): IOT.SearchGoogle,
     ('видео', 'youtube'): IOT.SearchOnYouTube,
-    ('пока', 'увидимся', 'прощай'): VoiceM.SayGoodbyeToUser,
-    ('конфигурация'): VoiceM.SetNewProfile
-
+    ('пока', 'увидимся', 'прощай', 'до свидания'): VoiceM.SayGoodbyeToUser,
+    ('конфигурация'): VoiceM.SetNewProfile,
     }
 
 
