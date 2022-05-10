@@ -1,4 +1,4 @@
-import Modules.SpeechRecognitionModule as SystemModule
+import Modules.SpeechRecognitionModule as SRM
 import Modules.CommandClassificatorModule as Classificator
 from vosk import Model, KaldiRecognizer
 from Classes.VoiceAssistant import VoiceAssistant
@@ -6,14 +6,14 @@ from Classes.VoiceAssistant import VoiceAssistant
 if __name__=='__main__':
     RecognizedSpeechCommand='' #string for speech recognized and translated to a text form
 
-    Assistant=VoiceAssistant(Name='помощник', Gender='male', UseLanguage='ru')
+    Assistant=VoiceAssistant(Name='ассистент', Gender='male', Language='ru')
     Assistant.ConfigureAssistant()
 
-    LocalModelConnection=SystemModule.ConnectToLocalLibrary(Assistant)
+    LocalModelConnection=SRM.ConnectToLocalLibrary(Assistant)
     while True:
-        if SystemModule.CheckConnection():
-            RecognizedSpeechCommand=SystemModule.OnlineRecognition(Assistant)
+        if SRM.CheckConnection():
+            RecognizedSpeechCommand=SRM.OnlineRecognition(Assistant)
         else:
-            RecognizedSpeechCommand=SystemModule.OfflineOfflineRecognition(Assistant)
+            RecognizedSpeechCommand=SRM.OfflineRecognition(Assistant, LocalModelConnection)
         print(RecognizedSpeechCommand)
         Classificator.CommandClassificator(RecognizedSpeechCommand, Assistant)

@@ -37,14 +37,12 @@ def ConnectToLocalLibrary(AssistantObject):
 
 
 def OfflineRecognition(AssistantObject, model):
-    TextData=None
-
+    TextData=''
     recognizer=KaldiRecognizer(model, 16000)
     capture=pyaudio.PyAudio()
     stream = capture.open(format=pyaudio.paInt16, channels=1, rate=16000,
                              input=True, frames_per_buffer=8192)
     stream.start_stream()
-
     while True:
         TextData=stream.read(4096)
         if len(TextData) == 0:
@@ -53,11 +51,11 @@ def OfflineRecognition(AssistantObject, model):
             TextData=recognizer.Result()
             TextData=TextData.partition(': "')[2]
             TextData=TextData.partition('"')[0]
-    return TextData
+            return TextData
   
 def CheckConnection():
     try:
         urllib.request.urlopen('http://mai.ru')
-        return True
+        return False
     except:
         return False
